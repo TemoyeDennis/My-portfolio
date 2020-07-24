@@ -135,22 +135,25 @@
         </div>
     <hr class="border-primary">
 <span class="anchor" id="portfolio"></span>
- <div class="container portfolio section" style="height:80vh">
+ <div class="container portfolio section" style="height:80">
      <h4 class="pre text-center text-secondary mt-5 pb-5">Portfolio</h4>
-      <div class="card-group "  style="padding-right:1%;">
-                  <div class="row row-cols-1 row-cols-md-3 pr-5">
-        {% for project  in projects %}
-        <div class="card border-0">
-<img class=" card-img-top img-fluid" style="width:500px;" src="/{{ project.prod_image}}">
-<div class="card-body" style="padding-left:30%;">
-<h3 class="card-title">{{project.title }}</h3>
-<p class="card-text">{{ project.description}}</p>
-</div>
- </div>
-  {% endfor %}
-                  </div>
-                   </div>
+          {% for project  in projects %}
+     <div class="row align-items-center h-100 text-center pb-5 text-lg-left" style="max-width: 540%;">
+  <div class= "col-lg-6 p-lg-0">
+      <img src="/{{ project.prod_image}}" class="card-img">
     </div>
+    <div class="col-lg-5 mx-auto py-3">
+      <div class="card-body">
+          <div class="showcase__description mb-4 color-gray">
+        <h5 class="card-title">{{project.title }}</h5>
+        <p class="card-text">{{ project.description}}</p>
+              </div>
+      </div>
+    </div>
+</div>
+       {% endfor %}
+    </div>
+
 
 
   <div id="price" class="sec3 bg-primary ">
