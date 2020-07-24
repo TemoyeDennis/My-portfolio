@@ -1,0 +1,262 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+      <meta name="viewport" content="width=device-width,
+    initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link href="Content/bootstrap.css" rel="stylesheet" />
+    <title>Hello, world!</title>
+      <style>
+
+      .contact .links{
+            width: 30%;
+      }
+      .contact a{
+        text-decoration: none;
+        color: white;
+      }
+          .services{
+          height: 100%;
+
+          }
+          .contact{
+           height: 50vh;
+          }
+
+          .home{
+          height: 80vh;
+          }
+          .home h1{
+            padding-top:80px;
+          }
+          #nav a{
+            padding-left:60px;
+            font-size:15px;
+            line-height: 23px;
+            font-family:"open sans", sans-serif;
+            font-weight
+          }
+          #nav{
+            padding-right:120px;
+          }
+          .services img{
+
+            padding-left:90px
+          }
+          .services h5{
+            padding-left:60px;
+
+          }
+          .services .serv-item{
+             color:black;
+
+          }
+         .services .serv-item .text-small {
+  font-size: 0.75rem;
+}
+          .anchor{
+  display: block;
+  height: 100px; /*same height as header*/
+  margin-top: -50px; /*same height as header*/
+  visibility: hidden;
+}
+.sec3{
+    height: 130vh;
+}
+
+      </style>
+  </head>
+  <body>
+  <nav class=" navbar navbar-expand-lg sticky-top navbar-light bg-light border-bottom ">
+  <a class="navbar-brand " href="#"><img  style="height:60px" src='{% static "images/lo.png"%}'></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse font-weight-bold " id="navbarSupportedContent">
+    <ul class="navbar-nav ml-auto " id="nav">
+
+      <li class="nav-item active " >
+        <a class="nav-link" href="#home">HOME</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="#services">SERVICE</a>
+      </li>
+        <li class="nav-item active">
+        <a class="nav-link" href="#portfolio">PORTFOLIO</a>
+      </li>
+          <li class="nav-item active">
+        <a class="nav-link" href="#contact">CONTACT</a>
+      </li>
+        <li class="nav-item active">
+        <a class="nav-link" href="#price">PRICING</a>
+      </li>
+         <li class="nav-item active">
+        <a class="nav-link" href="www.facebook.com"><h5><span class="badge badge-warning badge-sm">BLOG</span></h5></a>
+      </li>
+
+
+
+    </ul>
+  </div>
+</nav>
+   <div class="home bg-primary  text-center text-light " id="home">
+       <a class="nav-link" href="#portfolio"></a>
+       <h1>MACHINE LEARNING,<br> DEEP LEARNING & <br> WEB DEVELOPMENT</h1>
+       <p>Specializing in web development.<br>
+           If you're a business seeking a web presence or are looking to hire,<br>
+           contact me <a  class="text-light" href="#contact"><strong>here</strong></a>.</p>
+       <a href="#price">
+       <button type="button"  class="btn btn-warning btn-lg rounded-pill"  >Get Started</button>
+           </a>
+  </div>
+
+    <div class="services section text-light " id="services" style="#F8F9FA">
+          <div class="container serv-item pl-2 pt-5" >
+              <div class="card-group "  style="padding-right:1%;">
+                  <div class="row row-cols-1 row-cols-md-3 pr-5">
+        {% for Service  in Services %}
+        <div class="card border-0">
+<img class=" card-img-top img-fluid" style="width:500px;" src="/{{ Service.serv_image}}">
+<div class="card-body" style="padding-left:30%;">
+<h3 class="card-title">{{Service.title }}</h3>
+<p class="card-text">{{ Service.description}}</p>
+</div>
+ </div>
+  {% endfor %}
+                  </div>
+                   </div>
+              </div>
+        </div>
+    <hr class="border-primary">
+<span class="anchor" id="portfolio"></span>
+ <div class="container portfolio section" style="height:80vh">
+     <h4 class="pre text-center text-secondary mt-5 pb-5">Portfolio</h4>
+      <div class="card-group "  style="padding-right:1%;">
+                  <div class="row row-cols-1 row-cols-md-3 pr-5">
+        {% for project  in projects %}
+        <div class="card border-0">
+<img class=" card-img-top img-fluid" style="width:500px;" src="/{{ project.prod_image}}">
+<div class="card-body" style="padding-left:30%;">
+<h3 class="card-title">{{project.title }}</h3>
+<p class="card-text">{{ project.description}}</p>
+</div>
+ </div>
+  {% endfor %}
+                  </div>
+                   </div>
+    </div>
+
+
+  <div id="price" class="sec3 bg-primary ">
+      <h5 class="text-light text-center p-5">PRICE PER BULID</h5>
+      <div class="container pt-5">
+  <div class="row">
+    <div class="col-sm-4">
+      <div class="card">
+      <div class="card-body">
+        <h5 class="card-title text-center text-dark font-weight-bold p-3 rounded-pill" style="background:#EDEDED;">BASIC</h5>
+        <p class="card-text">
+                 <ul class="list-unstyled text-center text-dark font-weight-light">
+          <li class=" p-1">website audit</li>
+          <li class=" p-1">Design</li>
+          <li >Development</li>
+          <li class="mt-5" ><a href="#contact"  class="btn btn-outline-dark btn  btn-lg-5 rounded-pill">Request quote</a></li>
+        </ul>
+                </p>
+
+
+      </div>
+    </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="card rounded">
+      <div class="card-body">
+        <h5 class="card-title text-center text-light bg-primary font-weight-bold p-3 rounded-pill">STANDARD</h5>
+        <p class="card-text">
+                 <ul class="list-unstyled text-center text-dark font-weight-light">
+         <li class=" p-1">website audit</li>
+          <li class=" p-1">Design</li>
+          <li class=" p-1">Development</li>
+          <li class=" p-1">Backups</li>
+          <li class=" p-1">Analytics</li>
+          <li class=" p-1">Live Chat</li>
+          <li class=" p-1">Search Engine Optimization</li>
+          <li class=" p-1">Content Management</li>
+          <li class="mt-5" ><a href="#contact" class="btn btn-primary  btn-lg-5 rounded-pill" >Request quote</a></li>
+        </ul>
+                </p>
+      </div>
+    </div>
+    </div>
+    <div class="col-sm-4">
+     <div class="card">
+      <div class="card-body">
+        <h5 class="card-title text-light text-center font-weight-bold p-3 rounded-pill" style="background:#FFCD00;">PREMIUM</h5>
+        <p class="card-text">
+                 <ul class="list-unstyled text-center text-dark font-weight-light">
+          <li class=" p-1">website audit</li>
+          <li class=" p-1">Design</li>
+          <li class=" p-1">Development</li>
+          <li class=" p-1">Backups</li>
+          <li class=" p-1">Analytics</li>
+          <li class=" p-1">Live Chat</li>
+          <li class=" p-1">Search Engine Optimization</li>
+          <li class=" p-1">Content Management</li>
+          <li class=" p-1">Maintenance Agreement</li>
+          <li class=" p-1">eCommerce</li>
+          <li class=" p-1">Email Setup</li>
+          <li>Hosting</li>
+
+          <li class="mt-5" ><a href="#contact" class="btn btn-outline-light  btn-lg-5 rounded-pill text-light" style="background:#FFCD00; ">Request quote</a></li>
+        </ul>
+                </p>
+      </div>
+    </div>
+    </div>
+  </div>
+</div>
+         </div>
+
+   <div class="mb-5 p-5 contact " id="contact">
+        <h3 class="font-weight-bolder text-center text-dark pt-5">CONTACT ME</h3>
+        <div class="text-center p-2 mt-3 font-weight-bolder mb-4 bg-secondary rounded links">
+                    <ul class="footer__menu list-group list-group-horizontal-md list-unstyled ">
+                      <li class="footer__menu-item pl-5 ">
+                          <a href="https://www.linkedin.com/in/jonnymaceachern/" class="footer__menu-link" target="_blank">LinkedIn</a>
+                      </li>
+                      <li class="footer__menu-item pl-5">
+                          <a href="mailto:info@jonny.me" class="footer__menu-link">Email</a>
+                  </li>
+                      <li class="footer__menu-item pl-5">
+                          <a href="https://github.com/jonnymaceachern" class="footer__menu-link" target="_blank">GitHub</a>
+                      </li>
+                  </ul>
+                        </div>
+                <form id="blog-size" class="container contact  m-auto p-5 rounded  " style="background:#F8F9FA" >
+      <div class="form-group font-weight-bold">
+        <label for="exampleInputEmail1" class="text-dark">Email address</label>
+        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+      </div>
+     <div class="form-group font-weight-bold"><label class="text-dark" for="message">Message</label><textarea name="message" class="form-control" rows="5" id="message"></textarea></div>
+                    <div class=" text-center btn-group-lg ">
+                        <button type="button" class="btn btn-warning btn-sm rounded-pill font-weight-lighter" >Send</button>
+                    </div>
+
+
+                </form>
+
+   </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+  </body>
+</html>
